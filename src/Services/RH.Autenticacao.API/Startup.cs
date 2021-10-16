@@ -10,6 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using RH.Autenticacao.API.Data;
 using RH.Autenticacao.API.Extensions;
+using RH.Autenticacao.API.Services.Token;
 using System.Text;
 
 namespace RH.Autenticacao.API
@@ -26,6 +27,8 @@ namespace RH.Autenticacao.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddScoped<ITokenService, TokenService>();
             
             services.AddDefaultIdentity<IdentityUser>()
                 .AddRoles<IdentityRole>()
