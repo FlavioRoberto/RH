@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using RH.Autenticacao.API.Models;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace RH.Autenticacao.API.Controllers
 {
+    [ApiController]
     [Route("api/autenticacao")]
     public class AutenticacaoController : ControllerBase
     {
@@ -39,7 +41,7 @@ namespace RH.Autenticacao.API.Controllers
                 return Ok();
             }
 
-            return BadRequest(result.Errors);
+            return BadRequest(result.Errors.Select(x => new { codigo = x.Code, erro = x.Description }));
         }
 
         [HttpPost("autenticar")]
