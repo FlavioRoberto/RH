@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace RH.Disc.Controllers
+namespace RH.Veca.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]

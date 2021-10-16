@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace RH.Veca.Controllers
+namespace RH.Autenticacao.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]

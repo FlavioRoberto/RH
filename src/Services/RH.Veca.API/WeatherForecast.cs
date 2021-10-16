@@ -1,4 +1,4 @@
-namespace RH.Disc
+namespace RH.Veca.API
 {
     public class WeatherForecast
     {

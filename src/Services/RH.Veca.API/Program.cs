@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new() { Title = "RH.Veca", Version = "v1" });
+    c.SwaggerDoc("v1", new() { Title = "RH.Veca.API", Version = "v1" });
 });
 
 var app = builder.Build();
@@ -16,7 +16,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "RH.Veca v1"));
+    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "RH.Veca.API v1"));
 }
 
 app.UseHttpsRedirection();

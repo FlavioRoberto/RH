@@ -1,4 +1,4 @@
-namespace RH.Veca
+namespace RH.Autenticacao.API
 {
     public class WeatherForecast
     {
