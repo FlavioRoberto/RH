@@ -2,15 +2,12 @@
 using Microsoft.AspNetCore.Mvc;
 using RH.Autenticacao.API.Models;
 using RH.Autenticacao.API.Services.Token;
-using System;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace RH.Autenticacao.API.Controllers
 {
-    [ApiController]
     [Route("api/autenticacao")]
-    public class AutenticacaoController : ControllerBase
+    public class AutenticacaoController : MainController
     {
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
@@ -29,7 +26,7 @@ namespace RH.Autenticacao.API.Controllers
         public async Task<ActionResult> Registrar(UsuarioRegistro usuarioRegistro)
         {
             if (!ModelState.IsValid)
-                return BadRequest();
+                return CustomResponse(ModelState);
 
             var usuario = new IdentityUser
             {
@@ -41,26 +38,34 @@ namespace RH.Autenticacao.API.Controllers
             var result = await _userManager.CreateAsync(usuario, usuarioRegistro.Senha);
 
             if (result.Succeeded)
-            {
-                await _signInManager.SignInAsync(usuario, false);
-                return Ok(await GerarJwt(usuario.Email));
-            }
+                return CustomResponse(await GerarJwt(usuario.Email));
 
-            return BadRequest(result.Errors.Select(x => new { codigo = x.Code, erro = x.Description }));
+            foreach (var erro in result.Errors)
+                AdicionarErroProcessamento(erro.Description);
+
+            return CustomResponse();
         }
 
         [HttpPost("autenticar")]
         public async Task<ActionResult> Autenticar(UsuarioLogin usuarioLogin)
         {
             if (!ModelState.IsValid)
-                return BadRequest();
+                return CustomResponse(ModelState);
 
             var result = await _signInManager.PasswordSignInAsync(usuarioLogin.Email, usuarioLogin.Senha, false, true);
 
             if (result.Succeeded)
-                return Ok(await GerarJwt(usuarioLogin.Email));
+                return CustomResponse(await GerarJwt(usuarioLogin.Email));
 
-            return BadRequest();
+            if (result.IsLockedOut)
+            {
+                AdicionarErroProcessamento("Usuário temporiamente bloqueado por tentativas inválidas.");
+                return CustomResponse();
+            }
+
+            AdicionarErroProcessamento("Usuário ou senha incorretos.");
+            return CustomResponse();
+
         }
 
         private async Task<UsuarioRespostaLogin> GerarJwt(string email)
