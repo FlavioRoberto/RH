@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using RH.Autenticacao.API.Data;
 using RH.Autenticacao.API.Extensions;
+using RH.WebApi.Core.Identidade;
 using System.Text;
 
 namespace RH.Autenticacao.API.Configurations
@@ -23,30 +24,7 @@ namespace RH.Autenticacao.API.Configurations
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-            var appSettingsSection = Configuration.GetSection("AppSettings");
-            services.Configure<Appsettings>(appSettingsSection);
-
-            var appSettings = appSettingsSection.Get<Appsettings>();
-            var key = Encoding.ASCII.GetBytes(appSettings.Secret);
-
-            services.AddAuthentication(options =>
-            {
-                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(bearerOptions =>
-            {
-                bearerOptions.RequireHttpsMetadata = true;
-                bearerOptions.SaveToken = true;
-                bearerOptions.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(key),
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
-                    ValidAudience = appSettings.ValidoEm,
-                    ValidIssuer = appSettings.Emissor
-                };
-            });
+            services.AddJwtConfiguration(Configuration);
 
             return services;
         }

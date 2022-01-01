@@ -1,4 +1,4 @@
-﻿namespace RH.Autenticacao.API.Extensions
+﻿namespace RH.WebApi.Core.Identidade
 {
     public class Appsettings
     {

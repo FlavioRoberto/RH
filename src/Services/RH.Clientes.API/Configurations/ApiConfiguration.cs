@@ -40,6 +40,8 @@ namespace RH.Clientes.API.Configurations
 
             app.UseRouting();
 
+            app.UseCors("Total");
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

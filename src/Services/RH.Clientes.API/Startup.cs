@@ -1,9 +1,11 @@
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RH.Clientes.API.Configurations;
+using RH.WebApi.Core.Identidade;
 
 namespace RH.Clientes.API
 {
@@ -28,9 +30,10 @@ namespace RH.Clientes.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddApiConfiguration(Configuration);
-       //     services.AddJwtConfiguration();
+            services.AddJwtConfiguration(Configuration);
             services.AddSwaggerConfiguration();
-       //     services.RegisterServices();
+            services.AddMediatR(typeof(Startup));
+            services.RegisterServices();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
