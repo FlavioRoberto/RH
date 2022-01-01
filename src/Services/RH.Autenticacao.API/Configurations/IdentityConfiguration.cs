@@ -15,7 +15,7 @@ namespace RH.Autenticacao.API.Configurations
     {
         public static IServiceCollection AddIdentityConfiguration(this IServiceCollection services, IConfiguration Configuration)
         {
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDefaultIdentity<IdentityUser>()
                 .AddRoles<IdentityRole>()
