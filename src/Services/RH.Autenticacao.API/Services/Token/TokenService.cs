@@ -3,6 +3,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using RH.Autenticacao.API.Extensions;
 using RH.Autenticacao.API.Models;
+using RH.WebApi.Core.Identidade;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;

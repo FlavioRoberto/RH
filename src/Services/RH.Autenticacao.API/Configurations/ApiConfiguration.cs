@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RH.Autenticacao.API.Services.Token;
+using RH.WebApi.Core.Identidade;
 
 namespace RH.Autenticacao.API.Configurations
 {
@@ -25,7 +26,7 @@ namespace RH.Autenticacao.API.Configurations
 
             app.UseRouting();
 
-            app.UseIdentityConfiguration();
+            app.UseAuthConfiguration();
 
             app.UseEndpoints(endpoints =>
             {

@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RH.Clientes.API.Data;
+using RH.WebApi.Core.Identidade;
 
 namespace RH.Clientes.API.Configurations
 {
@@ -39,6 +40,8 @@ namespace RH.Clientes.API.Configurations
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthConfiguration();
 
             app.UseCors("Total");
 

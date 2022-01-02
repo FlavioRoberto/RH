@@ -1,14 +1,10 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.IdentityModel.Tokens;
 using RH.Autenticacao.API.Data;
 using RH.Autenticacao.API.Extensions;
 using RH.WebApi.Core.Identidade;
-using System.Text;
 
 namespace RH.Autenticacao.API.Configurations
 {
@@ -27,15 +23,6 @@ namespace RH.Autenticacao.API.Configurations
             services.AddJwtConfiguration(Configuration);
 
             return services;
-        }
-
-        public static IApplicationBuilder UseIdentityConfiguration(this IApplicationBuilder app)
-        {
-            app.UseAuthorization();
-
-            app.UseAuthentication();
-
-            return app;
         }
     }
 }
