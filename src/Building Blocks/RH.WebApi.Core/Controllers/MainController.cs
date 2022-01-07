@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace RH.Autenticacao.API.Controllers
+namespace RH.WebApi.Core.Controllers
 {
     [ApiController]
     public abstract class MainController : Controller
@@ -32,6 +32,7 @@ namespace RH.Autenticacao.API.Controllers
         {
             return !Erros.Any();
         }
+
 
         private ValidationProblemDetails RecuperarErros()
         {

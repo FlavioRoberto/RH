@@ -1,8 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FluentValidation.Results;
+using Microsoft.EntityFrameworkCore;
 using RH.Clientes.API.Domain.Models;
 using RH.Core.Data;
 using RH.Core.DomainObjects;
 using RH.Core.Mediator;
+using RH.Core.Messages;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -24,6 +26,8 @@ namespace RH.Clientes.API.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Ignore<ValidationResult>();
+            modelBuilder.Ignore<Event>();
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ClientesContext).Assembly);
         }
 

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using RH.Autenticacao.API.Models;
 using RH.Autenticacao.API.Services.Token;
+using RH.WebApi.Core.Controllers;
 using System.Threading.Tasks;
 
 namespace RH.Autenticacao.API.Controllers

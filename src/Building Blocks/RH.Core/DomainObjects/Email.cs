@@ -1,4 +1,6 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Net.Mail;
+using System.Text.RegularExpressions;
 
 namespace RH.Core.DomainObjects
 {
@@ -20,8 +22,15 @@ namespace RH.Core.DomainObjects
 
         public static bool Validar(string email)
         {
-            var regexEmail = new Regex(@"^(([^<>()[\]\.,;:\s@\""]+ (\.[^<> ()[\]\.,;:\s@\""]+)*)|(\"".+\""))@(([^<>()[\]\.,;:\s@\""]+\.)+[^<>()[\]\.,;:\s@\""]{2,})$");
-            return regexEmail.IsMatch(email);
+            try
+            {
+                var m = new MailAddress(email);
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
         }
     }
 }
