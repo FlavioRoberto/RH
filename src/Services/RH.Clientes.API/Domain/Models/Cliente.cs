@@ -1,7 +1,7 @@
 ﻿using RH.Core.DomainObjects;
 using System;
 
-namespace RH.Clientes.API.Models
+namespace RH.Clientes.API.Domain.Models
 {
     public class Cliente : Entity, IAgregateRoot
     {

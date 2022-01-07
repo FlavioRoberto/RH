@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using RH.Clientes.API.Models;
+using RH.Clientes.API.Domain.Models;
 
 namespace RH.Clientes.API.Data.Mappings
 {

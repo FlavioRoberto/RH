@@ -7,7 +7,7 @@ namespace RH.Core.Messages
     public abstract class Command : Message, IRequest<ValidationResult>
     {
         public DateTime Timestamp { get; private set; }
-        public ValidationResult ValidationResult { get; private set; }
+        public ValidationResult ValidationResult { get; protected set; }
 
         public Command()
         {

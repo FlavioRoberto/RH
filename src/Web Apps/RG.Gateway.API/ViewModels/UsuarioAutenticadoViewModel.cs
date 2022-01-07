@@ -18,6 +18,12 @@ namespace RG.Gateway.API.ViewModels
             public string Senha { get; set; }
         }
 
+        public class UsuarioRegistro {
+            public string Email { get; set; }
+            public string Senha { get; set; }
+            public string SenhaConfirmacao { get; set; }
+        }
+
         public class UsuarioToken
         {
             public string Id { get; set; }

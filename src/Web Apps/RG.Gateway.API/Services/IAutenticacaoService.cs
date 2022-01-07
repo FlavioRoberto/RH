@@ -9,5 +9,8 @@ namespace RG.Gateway.API.Services
     {
         [Post("/autenticar")]
         Task<UsuarioRespostaLogin> Autenticar(UsuarioLogin login);
+     
+        [Post("/registrar")]
+        Task<UsuarioRespostaLogin> Registrar(UsuarioRegistro usuarioRegistro);
     }
 }

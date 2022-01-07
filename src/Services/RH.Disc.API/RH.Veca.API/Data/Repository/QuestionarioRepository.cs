@@ -11,7 +11,7 @@ namespace RH.Veca.API.Data.Repository
     {
         private readonly VecaContext _context;
 
-        public IUnitOfWork UnitOfWorkk => _context;
+        public IUnitOfWork UnitOfWork => _context;
 
         public QuestionarioRepository(VecaContext context)
         {

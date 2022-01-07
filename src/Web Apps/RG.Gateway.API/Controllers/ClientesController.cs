@@ -20,12 +20,18 @@ namespace RG.Gateway.API.Controllers
             _autenticacaoService = autenticacaoService;
         }
 
-
         [HttpPost("autenticar")]
         public async Task<ActionResult> Autenticar(UsuarioLogin usuarioLogin)
         {
             var respostaAutenticacao = await _autenticacaoService.Autenticar(usuarioLogin);
             return Ok(respostaAutenticacao);
+        }
+
+        [HttpPost("registrar")]
+        public async Task<ActionResult> Registrar(UsuarioRegistro usuarioRegistro)
+        {
+            var respostaRegistro = await _autenticacaoService.Registrar(usuarioRegistro);
+            return Ok(respostaRegistro);
         }
     }
 }
