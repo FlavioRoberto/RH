@@ -4,7 +4,7 @@ using RH.Clientes.API.Domain.Repository;
 using RH.Core.Data;
 using System.Threading.Tasks;
 
-namespace RH.Clientes.API.Data.Repository
+namespace RH.Clientes.API.Infra.Data.Repository
 {
     public class ClienteRepository : IClienteRepository
     {

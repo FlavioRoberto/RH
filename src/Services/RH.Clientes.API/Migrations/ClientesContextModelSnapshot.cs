@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using RH.Clientes.API.Data;
+using RH.Clientes.API.Infra.Data;
 
 namespace RH.Clientes.API.Migrations
 {

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using RH.Clientes.API.Domain.Models;
 
-namespace RH.Clientes.API.Data.Mappings
+namespace RH.Clientes.API.Infra.Data.Mappings
 {
     public class ClienteMapping : IEntityTypeConfiguration<Cliente>
     {

@@ -14,8 +14,14 @@ namespace RH.Veca.API.Data.Mappings
                    .IsRequired()
                    .HasMaxLength(250);
 
-            builder.Property(c => c.NotaIdeal);
-                    
+            builder.Property(c => c.IntervaloMinimo)
+                   .IsRequired();
+
+            builder.Property(c => c.IntervaloMaximo)
+                  .IsRequired();
+
+            builder.Property(c => c.UsuarioId)
+                   .IsRequired();
         }
     }
 }

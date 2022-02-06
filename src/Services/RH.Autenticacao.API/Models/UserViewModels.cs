@@ -6,6 +6,9 @@ namespace RH.Autenticacao.API.Models
     public class UsuarioRegistro
     {
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
+        public string Nome { get; set; }
+
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [EmailAddress(ErrorMessage = "O campo {0} não é um e-mail inválido")]
         public string Email { get; set; }
 

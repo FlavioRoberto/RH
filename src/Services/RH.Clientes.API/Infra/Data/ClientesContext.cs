@@ -8,7 +8,7 @@ using RH.Core.Messages;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RH.Clientes.API.Data
+namespace RH.Clientes.API.Infra.Data
 {
     public class ClientesContext : DbContext, IUnitOfWork
     {

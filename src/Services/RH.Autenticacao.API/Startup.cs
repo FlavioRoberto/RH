@@ -4,6 +4,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RH.Autenticacao.API.Configurations;
+using RH.Core.Extensions;
+using RH.MessageBus;
 
 namespace RH.Autenticacao.API
 {
@@ -28,6 +30,7 @@ namespace RH.Autenticacao.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddApiConfiguration();
+            services.AddMessageBus(Configuration.GetMessageQueueConnection("MessageBus"));
             services.AddIdentityConfiguration(Configuration);
             services.AddSwaggerConfiguration();
         }

@@ -33,6 +33,7 @@ namespace RH.Clientes.API
             services.AddJwtConfiguration(Configuration);
             services.AddSwaggerConfiguration();
             services.AddMediatR(typeof(Startup));
+            services.AddMessageBusConfig(Configuration);
             services.RegisterServices();
         }
 

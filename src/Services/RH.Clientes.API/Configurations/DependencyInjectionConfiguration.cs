@@ -3,8 +3,8 @@ using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using RH.Clientes.API.Application.Commands.Registrar;
 using RH.Clientes.API.Application.Events;
-using RH.Clientes.API.Data;
-using RH.Clientes.API.Data.Repository;
+using RH.Clientes.API.Infra.Data;
+using RH.Clientes.API.Infra.Data.Repository;
 using RH.Clientes.API.Domain.Repository;
 using RH.Core.Mediator;
 

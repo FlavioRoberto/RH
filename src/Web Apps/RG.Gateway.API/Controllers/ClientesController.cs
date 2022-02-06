@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using RG.Gateway.API.Services;
+using RH.WebApi.Core.Controllers;
 using System.Threading.Tasks;
 using static RG.Gateway.API.ViewModels.UsuarioAutenticadoViewModel;
 

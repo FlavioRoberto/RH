@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RH.Autenticacao.API.Services.Token;
+using RH.MessageBus;
 using RH.WebApi.Core.Identidade;
 
 namespace RH.Autenticacao.API.Configurations

@@ -18,11 +18,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\..\..\Building Blocks\RH.Core\RH.Core.csproj" />
+    <ProjectReference Include="..\..\..\Building Blocks\RH.WebApi.Core\RH.WebApi.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Building Blocks\RH.Core\RH.Core.csproj" />
+    <Folder Include="Application\Commands\Competencias\" />
+    <Folder Include="Application\Queries\Competencias\" />
   </ItemGroup>
 
 </Project>

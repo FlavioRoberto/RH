@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using RH.Clientes.API.Data;
+using RH.Clientes.API.Infra.Data;
 using RH.WebApi.Core.Identidade;
 
 namespace RH.Clientes.API.Configurations
